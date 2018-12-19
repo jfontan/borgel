@@ -1,15 +1,7 @@
 pipeline {
   agent {
-    kubernetes {
-      label 'regression-borges'
-      inheritFrom 'performance'
-      defaultContainer 'regression-borges'
-      containerTemplate {
-        name 'regression-borges'
-        image 'srcd/regression-borges:v0.2.0'
-        ttyEnabled true
-        command 'cat'
-      }
+    docker {
+      image 'srcd/regression-borges:v0.2.0'
     }
   }
   environment {
